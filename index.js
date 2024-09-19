@@ -3,7 +3,16 @@ const cors = require('cors');
 const app = express();
 const port = 3001;
 
-app.use(cors());
+const cors = require('cors');
+
+// Permitir requisições do GitHub Pages
+const corsOptions = {
+  origin: 'https://drivenow-presentation.github.io', // Substitua pela URL do seu GitHub Pages
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+
 
 app.get('/api/info', (req, res) => {
   res.json({
